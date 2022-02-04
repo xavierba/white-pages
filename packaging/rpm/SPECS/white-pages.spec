@@ -28,7 +28,6 @@ Release: 2%{?dist}
 License: GPLv3
 BuildArch: noarch
 
-Group: Applications/Web
 URL: https://ltb-project.org
 
 Source: %{wp_realname}-%{wp_version}.tar.gz
