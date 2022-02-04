@@ -33,7 +33,7 @@ URL: https://ltb-project.org
 Source0: https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1: white-pages-apache.conf
 
-Prereq: coreutils
+Requires: coreutils
 Requires: php, php-ldap, php-gd
 
 %description
