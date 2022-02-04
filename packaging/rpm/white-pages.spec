@@ -47,6 +47,9 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 %prep
 %setup -q -n %{name}-%{version}
 
+%build
+# Nothing to build
+
 #=================================================
 # Installation
 #=================================================
