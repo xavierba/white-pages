@@ -96,12 +96,6 @@ sed -i 's:^#$smarty_compile_dir.*:$smarty_compile_dir = "'%{wp_cachedir}/templat
 /bin/chown apache:apache %{wp_cachedir}/templates_c
 
 #=================================================
-# Cleaning
-#=================================================
-%clean
-rm -rf %{buildroot}
-
-#=================================================
 # Files
 #=================================================
 %files
