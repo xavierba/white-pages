@@ -46,7 +46,7 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 # Source preparation
 #=================================================
 %prep
-%setup -n %{name}-%{wp_version}
+%setup -q -n %{name}-%{wp_version}
 
 #=================================================
 # Installation
