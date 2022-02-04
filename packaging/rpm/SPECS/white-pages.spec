@@ -32,7 +32,6 @@ URL: https://ltb-project.org
 
 Source0: https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1: white-pages-apache.conf
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Prereq: coreutils
 Requires: php, php-ldap, php-gd
