@@ -52,8 +52,6 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 # Installation
 #=================================================
 %install
-rm -rf %{buildroot}
-
 # Create directories
 mkdir -p %{buildroot}/%{wp_destdir}
 mkdir -p %{buildroot}/%{wp_destdir}/bin
