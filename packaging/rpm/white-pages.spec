@@ -94,6 +94,8 @@ sed -i \
 # Files
 #=================================================
 %files
+%license LICENCE
+%doc AUTHORS README.md
 %config(noreplace) %{wp_destdir}/conf/config.inc.php
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/white-pages.conf
 %{wp_destdir}/
