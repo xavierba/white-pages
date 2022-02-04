@@ -25,7 +25,7 @@ Summary: LDAP white pages web interface
 Name: %{wp_name}
 Version: %{wp_version}
 Release: 2%{?dist}
-License: GPL
+License: GPLv3
 BuildArch: noarch
 
 Group: Applications/Web
