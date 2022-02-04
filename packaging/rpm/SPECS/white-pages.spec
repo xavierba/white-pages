@@ -12,9 +12,6 @@
 #=================================================
 # Variables
 #=================================================
-%global wp_name      white-pages
-%global wp_realname  ltb-project-%{name}
-%global wp_version   0.4
 %global wp_destdir   /usr/share/%{name}
 %global wp_cachedir  /var/cache/%{name}
 
@@ -22,8 +19,8 @@
 # Header
 #=================================================
 Summary: LDAP white pages web interface
-Name: %{wp_name}
-Version: %{wp_version}
+Name: white-pages
+Version: 0.4
 Release: 2%{?dist}
 License: GPLv3
 BuildArch: noarch
@@ -47,7 +44,7 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 # Source preparation
 #=================================================
 %prep
-%setup -q -n %{name}-%{wp_version}
+%setup -q -n %{name}-%{version}
 
 #=================================================
 # Installation
