@@ -34,7 +34,9 @@ Source0: https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-
 Source1: white-pages-apache.conf
 
 Requires: coreutils
-Requires: php, php-ldap, php-gd
+Requires: php
+Requires: php-ldap
+Requires: php-gd
 
 %description
 White Pages is a PHP application that allows users to search and display data stored in an LDAP directory. 
