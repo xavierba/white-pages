@@ -32,6 +32,7 @@ Source1: white-pages-apache.conf
 
 Requires(pre):  httpd
 Requires: coreutils
+Requires: httpd
 Requires: php
 Requires: php-ldap
 Requires: php-gd
