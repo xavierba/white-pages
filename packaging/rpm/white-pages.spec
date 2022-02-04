@@ -70,7 +70,6 @@ mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d
 # Copy files
 ## Program
 install -m 755 bin/*          %{buildroot}/%{wp_destdir}/bin
-install -m 644 conf/*         %{buildroot}/%{wp_destdir}/conf
 install -m 644 htdocs/*.php   %{buildroot}/%{wp_destdir}/htdocs
 cp -a          htdocs/css     %{buildroot}/%{wp_destdir}/htdocs
 cp -a          htdocs/js      %{buildroot}/%{wp_destdir}/htdocs
@@ -79,7 +78,7 @@ cp -a          htdocs/vendor  %{buildroot}/%{wp_destdir}/htdocs
 install -m 644 lang/*         %{buildroot}/%{wp_destdir}/lang
 install -m 644 lib/*          %{buildroot}/%{wp_destdir}/lib
 install -m 644 templates/*    %{buildroot}/%{wp_destdir}/templates
-cp -a          vendor/*       %{buildroot}/%{wp_destdir}/vendor
+#cp -a          vendor/*       %{buildroot}/%{wp_destdir}/vendor
 ## Apache configuration
 install -m 644 %{SOURCE1}     %{buildroot}%{_sysconfdir}/httpd/conf.d/white-pages.conf
 
@@ -88,6 +87,13 @@ sed -i \
   -e 's:/usr/share/php/smarty3:/usr/share/php/Smarty:' \
   -e 's:^#$smarty_cache_dir.*:$smarty_cache_dir = "'%{wp_cachedir}/cache'";:' \
   -e 's:^#$smarty_compile_dir.*:$smarty_compile_dir = "'%{wp_cachedir}/templates_c'";:' \
+  conf/config.inc.php
+
+# Move conf dir
+mkdir -p %{buildroot}%{_sysconfdir}/%{name}
+install -m 644 conf/config.inc.php \
+  %{buildroot}/%{_sysconfdir}/%{name}/
+ln -s %{_sysconfdir}/%{name}/config.inc.php \
   %{buildroot}%{wp_destdir}/conf/config.inc.php
 
 #=================================================
@@ -96,7 +102,8 @@ sed -i \
 %files
 %license LICENCE
 %doc AUTHORS README.md
-%config(noreplace) %{wp_destdir}/conf/config.inc.php
+%dir %{_sysconfdir}/%{name}
+%config(noreplace) %{_sysconfdir}/%{name}/config.inc.php
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/white-pages.conf
 %{wp_destdir}/
 %dir %{wp_cachedir}
