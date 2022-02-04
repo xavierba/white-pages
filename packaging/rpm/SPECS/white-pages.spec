@@ -30,7 +30,7 @@ BuildArch: noarch
 
 URL: https://ltb-project.org
 
-Source: %{wp_realname}-%{wp_version}.tar.gz
+Source0: https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1: white-pages-apache.conf
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -45,7 +45,7 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 # Source preparation
 #=================================================
 %prep
-%setup -n %{wp_realname}-%{wp_version}
+%setup -n %{name}-%{wp_version}
 
 #=================================================
 # Installation
