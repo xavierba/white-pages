@@ -39,7 +39,8 @@ Requires: php-ldap
 Requires: php-gd
 
 %description
-White Pages is a PHP application that allows users to search and display data stored in an LDAP directory. 
+White Pages is a PHP application that allows users to search and display data
+stored in an LDAP directory.
 White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 
 #=================================================
@@ -82,9 +83,11 @@ cp -a          vendor/*       %{buildroot}/%{wp_destdir}/vendor
 install -m 644 %{SOURCE1}     %{buildroot}/etc/httpd/conf.d/white-pages.conf
 
 # Adapt Smarty paths
-sed -i 's:/usr/share/php/smarty3:/usr/share/php/Smarty:' %{buildroot}%{wp_destdir}/conf/config.inc.php
-sed -i 's:^#$smarty_cache_dir.*:$smarty_cache_dir = "'%{wp_cachedir}/cache'";:' %{buildroot}%{wp_destdir}/conf/config.inc.php
-sed -i 's:^#$smarty_compile_dir.*:$smarty_compile_dir = "'%{wp_cachedir}/templates_c'";:' %{buildroot}%{wp_destdir}/conf/config.inc.php
+sed -i \
+  -e 's:/usr/share/php/smarty3:/usr/share/php/Smarty:' \
+  -e 's:^#$smarty_cache_dir.*:$smarty_cache_dir = "'%{wp_cachedir}/cache'";:' \
+  -e 's:^#$smarty_compile_dir.*:$smarty_compile_dir = "'%{wp_cachedir}/templates_c'";:' \
+  %{buildroot}%{wp_destdir}/conf/config.inc.php
 
 %post
 #=================================================
