@@ -99,7 +99,6 @@ sed -i 's:^#$smarty_compile_dir.*:$smarty_compile_dir = "'%{wp_cachedir}/templat
 # Files
 #=================================================
 %files
-%defattr(-, root, root, 0755)
 %config(noreplace) %{wp_destdir}/conf/config.inc.php
 %config(noreplace) /etc/httpd/conf.d/white-pages.conf
 %{wp_destdir}
