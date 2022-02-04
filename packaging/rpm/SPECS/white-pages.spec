@@ -12,11 +12,11 @@
 #=================================================
 # Variables
 #=================================================
-%define wp_name      white-pages
-%define wp_realname  ltb-project-%{name}
-%define wp_version   0.4
-%define wp_destdir   /usr/share/%{name}
-%define wp_cachedir  /var/cache/%{name}
+%global wp_name      white-pages
+%global wp_realname  ltb-project-%{name}
+%global wp_version   0.4
+%global wp_destdir   /usr/share/%{name}
+%global wp_cachedir  /var/cache/%{name}
 
 #=================================================
 # Header
