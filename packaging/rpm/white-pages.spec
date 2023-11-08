@@ -22,7 +22,7 @@ Summary: LDAP white pages web interface
 Name: white-pages
 Version: 0.4
 Release: 2%{?dist}
-License: GPLv3
+License: GPL-3.0-only
 BuildArch: noarch
 
 URL: https://ltb-project.org
