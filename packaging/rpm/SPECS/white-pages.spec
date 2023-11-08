@@ -12,8 +12,8 @@
 #=================================================
 # Variables
 #=================================================
-%global wp_destdir   /usr/share/%{name}
-%global wp_cachedir  /var/cache/%{name}
+%global wp_destdir   %{_datadir}/%{name}
+%global wp_cachedir  %{_localstatedir}/cache/%{name}
 
 #=================================================
 # Header
@@ -61,7 +61,7 @@ mkdir -p %{buildroot}/%{wp_destdir}/lib
 mkdir -p %{buildroot}/%{wp_destdir}/templates
 mkdir -p %{buildroot}/%{wp_cachedir}/templates_c
 mkdir -p %{buildroot}/%{wp_destdir}/vendor
-mkdir -p %{buildroot}/etc/httpd/conf.d
+mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d
 
 # Copy files
 ## Program
@@ -77,7 +77,7 @@ install -m 644 lib/*          %{buildroot}/%{wp_destdir}/lib
 install -m 644 templates/*    %{buildroot}/%{wp_destdir}/templates
 cp -a          vendor/*       %{buildroot}/%{wp_destdir}/vendor
 ## Apache configuration
-install -m 644 %{SOURCE1}     %{buildroot}/etc/httpd/conf.d/white-pages.conf
+install -m 644 %{SOURCE1}     %{buildroot}%{_sysconfdir}/httpd/conf.d/white-pages.conf
 
 # Adapt Smarty paths
 sed -i \
@@ -100,7 +100,7 @@ sed -i \
 #=================================================
 %files
 %config(noreplace) %{wp_destdir}/conf/config.inc.php
-%config(noreplace) /etc/httpd/conf.d/white-pages.conf
+%config(noreplace) %{_sysconfdir}/httpd/conf.d/white-pages.conf
 %{wp_destdir}
 %{wp_cachedir}
 
