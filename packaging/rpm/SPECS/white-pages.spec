@@ -30,6 +30,7 @@ URL: https://ltb-project.org
 Source0: https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1: white-pages-apache.conf
 
+Requires(pre):  httpd
 Requires: coreutils
 Requires: php
 Requires: php-ldap
@@ -86,23 +87,16 @@ sed -i \
   -e 's:^#$smarty_compile_dir.*:$smarty_compile_dir = "'%{wp_cachedir}/templates_c'";:' \
   %{buildroot}%{wp_destdir}/conf/config.inc.php
 
-%post
-#=================================================
-# Post Installation
-#=================================================
-
-# Change owner
-/bin/chown apache:apache %{wp_cachedir}/cache
-/bin/chown apache:apache %{wp_cachedir}/templates_c
-
 #=================================================
 # Files
 #=================================================
 %files
 %config(noreplace) %{wp_destdir}/conf/config.inc.php
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/white-pages.conf
-%{wp_destdir}
-%{wp_cachedir}
+%{wp_destdir}/
+%dir %{wp_cachedir}
+%attr(-,apache,apache) %{wp_cachedir}/cache/
+%attr(-,apache,apache) %{wp_cachedir}/templates_c/
 
 #=================================================
 # Changelog
