@@ -40,6 +40,18 @@ Requires:  php-Smarty
 Requires:  php-phpmailer6
 Requires:  php-ltb-project-ldap
 
+# Fonts
+Provides:  bundled(fontawesome-fonts) = 4.7.0
+# CSS
+Provides:  bundled(css-hover) = 2.0.1
+# Javascripts
+Provides:  bundled(js-bootstrap) = 3.2.0
+Provides:  bundled(js-bootstrap-datepicker) = 1.6.4
+Provides:  bundled(js-datatables) = 1.10.16
+Provides:  bundled(js-jquery) = 1.10.2
+Provides:  bundled(js-leaflet) = 1.9.3
+Provides:  bundled(js-leaflet.markercluster) = 1.5.3
+
 
 %description
 White Pages is a PHP application that allows users to search and display data
