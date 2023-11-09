@@ -30,6 +30,9 @@ BuildArch: noarch
 Source0:   https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:   white-pages-apache.conf
 
+# https://github.com/ltb-project/white-pages/commit/1d7b6b2eb32c62b0f7fec2c10e979c024ef7e84c.patch
+Patch0:    white-pages-0.4-phpunit_6+_fix.patch
+
 Requires(pre):  httpd
 Requires:  coreutils
 Requires:  mod_php
@@ -62,7 +65,7 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 # Source preparation
 #=================================================
 %prep
-%setup -q -n %{name}-%{version}
+%autosetup -p1
 
 %build
 # Nothing to build
@@ -112,6 +115,11 @@ install -m 644 conf/config.inc.php \
   %{buildroot}/%{_sysconfdir}/%{name}/
 ln -s %{_sysconfdir}/%{name}/config.inc.php \
   %{buildroot}%{wp_destdir}/conf/config.inc.php
+
+
+%check
+%{?fedora:phpunit9 --verbose --testdox --do-not-cache-result tests}
+
 
 #=================================================
 # Files
