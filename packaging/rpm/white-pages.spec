@@ -18,17 +18,17 @@
 #=================================================
 # Header
 #=================================================
-Summary: LDAP white pages web interface
-Name: white-pages
-Version: 0.4
-Release: 2%{?dist}
-License: GPL-3.0-only
+Name:      white-pages
+Version:   0.4
+Release:   2%{?dist}
+Summary:   LDAP white pages web interface
+URL:       https://ltb-project.org/documentation/white-pages.html
+License:   GPL-3.0-only
+
 BuildArch: noarch
 
-URL: https://ltb-project.org
-
-Source0: https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
-Source1: white-pages-apache.conf
+Source0:   https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
+Source1:   white-pages-apache.conf
 
 Requires(pre):  httpd
 Requires: coreutils
