@@ -14,7 +14,7 @@
 
 Name:      white-pages
 Version:   0.4
-Release:   2%{?dist}
+Release:   3%{?dist}
 Summary:   LDAP white pages web interface
 URL:       https://ltb-project.org/documentation/white-pages.html
 License:   GPL-3.0-only
@@ -147,6 +147,9 @@ fi
 
 
 %changelog
+* Fri Nov 10 2023 Xavier Bachelot <xavier@bachelot.org> - 0.4-3
+- Spec file cleanup
+
 * Wed May 17 2023 - Clement Oudot <clem@ltb-project.org> - 0.4-2
 - gh#126: Missing bin/ directory in packages
 
