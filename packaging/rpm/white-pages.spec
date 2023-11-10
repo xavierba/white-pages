@@ -70,15 +70,14 @@ White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 # Create directories
 mkdir -p %{buildroot}/%{wp_destdir}
 mkdir -p %{buildroot}/%{wp_destdir}/bin
-mkdir -p %{buildroot}/%{wp_cachedir}/cache
 mkdir -p %{buildroot}/%{wp_destdir}/conf
 mkdir -p %{buildroot}/%{wp_destdir}/htdocs
 mkdir -p %{buildroot}/%{wp_destdir}/lang
 mkdir -p %{buildroot}/%{wp_destdir}/lib
 mkdir -p %{buildroot}/%{wp_destdir}/templates
-mkdir -p %{buildroot}/%{wp_cachedir}/templates_c
 mkdir -p %{buildroot}/%{wp_destdir}/vendor
-mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d
+mkdir -p %{buildroot}/%{wp_cachedir}/cache
+mkdir -p %{buildroot}/%{wp_cachedir}/templates_c
 
 # Copy files
 ## Program
@@ -97,6 +96,7 @@ mkdir -p %{buildroot}/%{wp_destdir}/vendor
 install -m 644 %{SOURCE2} %{buildroot}/%{wp_destdir}/vendor/autoload.php
 
 ## Apache configuration
+mkdir -p %{buildroot}%{_sysconfdir}/httpd/conf.d
 install -m 644 %{SOURCE1} \
   %{buildroot}%{_sysconfdir}/httpd/conf.d/white-pages.conf
 
