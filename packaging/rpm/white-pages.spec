@@ -9,15 +9,9 @@
 # Copyright (C) 2009-2023 LTB-project
 #=================================================
 
-#=================================================
-# Variables
-#=================================================
 %global wp_destdir   %{_datadir}/%{name}
 %global wp_cachedir  %{_localstatedir}/cache/%{name}
 
-#=================================================
-# Header
-#=================================================
 Name:      white-pages
 Version:   0.4
 Release:   2%{?dist}
@@ -63,18 +57,15 @@ White Pages is a PHP application that allows users to search and display data
 stored in an LDAP directory.
 White Pages is provided by LDAP Tool Box project: https://ltb-project.org
 
-#=================================================
-# Source preparation
-#=================================================
+
 %prep
 %autosetup -p1
+
 
 %build
 # Nothing to build
 
-#=================================================
-# Installation
-#=================================================
+
 %install
 # Create directories
 mkdir -p %{buildroot}/%{wp_destdir}
@@ -142,9 +133,6 @@ if [ -f "%{wp_destdir}/conf/config.inc.local.php" ]; then
 fi
 
 
-#=================================================
-# Files
-#=================================================
 %files
 %license LICENCE
 %doc AUTHORS README.md
@@ -157,9 +145,7 @@ fi
 %attr(-,apache,apache) %{wp_cachedir}/cache/
 %attr(-,apache,apache) %{wp_cachedir}/templates_c/
 
-#=================================================
-# Changelog
-#=================================================
+
 %changelog
 * Wed May 17 2023 - Clement Oudot <clem@ltb-project.org> - 0.4-2
 - gh#126: Missing bin/ directory in packages
