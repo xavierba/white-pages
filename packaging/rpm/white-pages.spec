@@ -129,6 +129,18 @@ install -m 644 %{SOURCE3} \
 %{?fedora:phpunit9 --verbose --testdox --do-not-cache-result tests}
 
 
+%post
+# Move configuration for older installation
+if [ -f "%{wp_destdir}/conf/config.inc.php" ]; then
+    mv %{wp_destdir}/conf/config.inc.php %{_sysconfdir}/%{name}/config.inc.php
+fi
+# Move configuration override too
+if [ -f "%{wp_destdir}/conf/config.inc.local.php" ]; then
+    mv %{wp_destdir}/conf/config.inc.local.php \
+      %{_sysconfdir}/%{name}/config.inc.local.php
+fi
+
+
 #=================================================
 # Files
 #=================================================
