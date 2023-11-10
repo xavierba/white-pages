@@ -29,6 +29,7 @@ BuildArch: noarch
 
 Source0:   https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:   white-pages-apache.conf
+Source2:   white-pages-vendor_autoload
 
 # https://github.com/ltb-project/white-pages/commit/1d7b6b2eb32c62b0f7fec2c10e979c024ef7e84c.patch
 Patch0:    white-pages-0.4-phpunit_6+_fix.patch
@@ -98,7 +99,11 @@ cp -a          htdocs/vendor  %{buildroot}/%{wp_destdir}/htdocs
 install -m 644 lang/*         %{buildroot}/%{wp_destdir}/lang
 install -m 644 lib/*          %{buildroot}/%{wp_destdir}/lib
 install -m 644 templates/*    %{buildroot}/%{wp_destdir}/templates
-#cp -a          vendor/*       %{buildroot}/%{wp_destdir}/vendor
+
+# External libs
+mkdir -p %{buildroot}/%{wp_destdir}/vendor
+install -m 644 %{SOURCE2} %{buildroot}/%{wp_destdir}/vendor/autoload.php
+
 ## Apache configuration
 install -m 644 %{SOURCE1}     %{buildroot}%{_sysconfdir}/httpd/conf.d/white-pages.conf
 
