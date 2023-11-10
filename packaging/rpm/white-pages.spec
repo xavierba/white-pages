@@ -106,7 +106,8 @@ mkdir -p %{buildroot}/%{wp_destdir}/vendor
 install -m 644 %{SOURCE2} %{buildroot}/%{wp_destdir}/vendor/autoload.php
 
 ## Apache configuration
-install -m 644 %{SOURCE1}     %{buildroot}%{_sysconfdir}/httpd/conf.d/white-pages.conf
+install -m 644 %{SOURCE1} \
+  %{buildroot}%{_sysconfdir}/httpd/conf.d/white-pages.conf
 
 # Adapt Smarty paths
 sed -i \
