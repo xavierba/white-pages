@@ -150,10 +150,10 @@ fi
 * Fri Nov 10 2023 Xavier Bachelot <xavier@bachelot.org> - 0.4-3
 - Spec file cleanup
 
-* Wed May 17 2023 - Clement Oudot <clem@ltb-project.org> - 0.4-2
+* Wed May 17 2023 Clement Oudot <clem@ltb-project.org> - 0.4-2
 - gh#126: Missing bin/ directory in packages
 
-* Thu May 04 2023 - Clement Oudot <clem@ltb-project.org> - 0.4-1
+* Thu May 04 2023 Clement Oudot <clem@ltb-project.org> - 0.4-1
 - gh#75: Display account : empty result
 - gh#76: add a option to change timeout of ldap connexion
 - gh#77: Gallery by group
@@ -191,7 +191,7 @@ fi
 - gh#124: Bug in group display in user and group base are the same
 - gh#125: Group rendering
 
-* Tue Jul 23 2019 - Clement Oudot <clem@ltb-project.org> - 0.3-1
+* Tue Jul 23 2019 Clement Oudot <clem@ltb-project.org> - 0.3-1
 - gh#42: add dropdown list to advanced search criteria
 - gh#47: Do not display not found groups/users
 - gh#48: Check ldap_bind return code instead of ldap_errorno
@@ -217,7 +217,7 @@ fi
 - gh#73: Option to display a logout link in the menu
 - gh#74: Provide a new type (list)
 
-* Mon Apr 16 2018 - Clement Oudot <clem@ltb-project.org> - 0.2-1
+* Mon Apr 16 2018 Clement Oudot <clem@ltb-project.org> - 0.2-1
 - gh#4: Italian language file
 - gh#5: Feature request : add export to CSV
 - gh#7: Export entry as VCard
@@ -246,5 +246,5 @@ fi
 - gh#40: Displaying binary data attributes
 - gh#41: Move label to title leads to misunderstanding
 
-* Tue Nov 22 2016 - Clement Oudot <clem@ltb-project.org> - 0.1-1
+* Tue Nov 22 2016 Clement Oudot <clem@ltb-project.org> - 0.1-1
 - First release
