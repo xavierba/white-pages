@@ -30,6 +30,7 @@ BuildArch: noarch
 Source0:   https://github.com/ltb-project/white-pages/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:   white-pages-apache.conf
 Source2:   white-pages-vendor_autoload
+Source3:   white-pages-config_inc_local
 
 # https://github.com/ltb-project/white-pages/commit/1d7b6b2eb32c62b0f7fec2c10e979c024ef7e84c.patch
 Patch0:    white-pages-0.4-phpunit_6+_fix.patch
@@ -120,6 +121,8 @@ install -m 644 conf/config.inc.php \
   %{buildroot}/%{_sysconfdir}/%{name}/
 ln -s %{_sysconfdir}/%{name}/config.inc.php \
   %{buildroot}%{wp_destdir}/conf/config.inc.php
+install -m 644 %{SOURCE3} \
+  %{buildroot}/%{_sysconfdir}/%{name}/config.inc.local.php
 
 
 %check
@@ -134,6 +137,7 @@ ln -s %{_sysconfdir}/%{name}/config.inc.php \
 %doc AUTHORS README.md
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/config.inc.php
+%config(noreplace) %{_sysconfdir}/%{name}/config.inc.local.php
 %config(noreplace) %{_sysconfdir}/httpd/conf.d/white-pages.conf
 %{wp_destdir}/
 %dir %{wp_cachedir}
